@@ -1,0 +1,771 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://mestergruppen.no/ontologies/projectproductionmanagement/"
+     xml:base="https://mestergruppen.no/ontologies/projectproductionmanagement/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://mestergruppen.no/ontologies/projectproductionmanagement/">
+        <owl:versionIRI rdf:resource="https://mestergruppen.no/ontologies/projectproductionmanagement/0.0.5/"/>
+        <owl:imports rdf:resource="https://w3id.org/bot-0.3.2"/>
+        <owl:imports rdf:resource="https://w3id.org/digitalconstruction/0.5/Information"/>
+        <owl:imports rdf:resource="https://w3id.org/digitalconstruction/0.5/Materials"/>
+        <owl:imports rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes"/>
+        <owl:imports rdf:resource="https://w3id.org/digitalconstruction/0.5/Variables"/>
+        <rdfs:comment>Copyright by Mester Gruppen AS</rdfs:comment>
+        <rdfs:comment>PPM is an application-level ontology focusing on:
+1.describing the organizational knowledge (Work package template) 
+2.providing a data schema for Pilarr semantic database (data lake) that represents and links different source of information (e.g. BIM quantity information) 
+3.represent multi-contextual information
+4.provide vocabulary for developing rules and queries for generating/retrieving the information for Job cards to support the LPS deployment in the housing model construction.</rdfs:comment>
+        <rdfs:isDefinedBy>Yuan Zheng
+Lars-Fredrik ForBerg
+Gunnar Skeie</rdfs:isDefinedBy>
+        <owl:versionInfo>0.0.5</owl:versionInfo>
+        <owl:versionInfo>This version 0.0.5 is a public version, in which detailed classification of JB,WP, and their corresponding specification (known as own knowledge from MesterGruppen) has been concealled. 
+This version also updates on the new concept of &apos; Scope of Work&apos;, groupping the cross-trade activities towards specific object ranges.
+The IRI of the ontology is also updated to be unified with the MG ontology set.</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/containsJobCard -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/containsJobCard">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#Project"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/containsScopeOfWork -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/containsScopeOfWork">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#Project"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/containsWorkPackage -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/containsWorkPackage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#Project"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasBuildingElement -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasBuildingElement">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/bot#hasElement"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bot#Zone"/>
+        <rdfs:range rdf:resource="https://w3id.org/bot#Element"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasBuildingElementModel -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasBuildingElementModel">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bot#Element"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasCrew -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasCrew">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Agents#hasExecutingAgent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Crew"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasElementQuantity -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasElementQuantity">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasHouseModel -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasHouseModel">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/0.5/Entities#Building"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasJobCardSpecification -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasJobCardSpecification">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasMaterialList -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasMaterialList">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Materials#hasMaterial"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialList"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasMaterialListSpecification -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasMaterialListSpecification">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialList"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasMaterialQuantity -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasMaterialQuantity">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasRelatedBuilding -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasRelatedBuilding">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#hasObject"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#Project"/>
+        <rdfs:range rdf:resource="https://w3id.org/digitalconstruction/0.5/Entities#Building"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasRelatedBuildingElement -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasRelatedBuildingElement">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#hasObject"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"/>
+        <rdfs:range rdf:resource="https://w3id.org/bot#Element"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasRelatedBuildingElementGroup -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasRelatedBuildingElementGroup">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#hasObject"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementGroup"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasTrade -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasTrade">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Crew"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Trade"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasWorkPackageSpecification -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasWorkPackageSpecification">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesBuildingElementModel -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesBuildingElementModel">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#includesModel"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesBuildingElementModelEntry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesBuildingElementModelEntry">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#includesEntry"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModelEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesHouseModelEntry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesHouseModelEntry">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#includesEntry"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModelEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesJobCardSpecification -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesJobCardSpecification">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#includesModel"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesJobCardSpecificationEntry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesJobCardSpecificationEntry">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#includesEntry"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecificationEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesMaterialListSpecification -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesMaterialListSpecification">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#includesModel"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesMaterialListSpecificationEntry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesMaterialListSpecificationEntry">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#includesEntry"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecificationEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesWorkPackageSpecificationEntry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesWorkPackageSpecificationEntry">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#includesEntry"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecificationEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/participates -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/participates">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Agents#isAgentIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Crew"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bot#hasElement -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bot#hasElement"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Agents#hasExecutingAgent -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/digitalconstruction/0.5/Agents#hasExecutingAgent"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Agents#isAgentIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/digitalconstruction/0.5/Agents#isAgentIn"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Information#includesEntry -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/digitalconstruction/0.5/Information#includesEntry"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Information#includesModel -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/digitalconstruction/0.5/Information#includesModel"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Information#isTopicOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Materials#hasMaterial -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/digitalconstruction/0.5/Materials#hasMaterial"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Processes#hasObject -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/digitalconstruction/0.5/Processes#hasObject"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Variables#hasProperty -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Apartment -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Apartment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Zone"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/bot#Storey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementGroup -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementGroup">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Entities#Group"/>
+        <rdfs:comment>A logical grouping of building elements that are functionally or spatially related. Used as the obejct group to organize the scope of work.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#Catalog"/>
+        <terms:license>A catalog of a specific design of certain building element product type. It refers to a particular set of design features, configurations, and properties that each Building Element instance inherits from it.</terms:license>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModelEntry -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModelEntry">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"/>
+        <rdfs:comment>A specific information container holds the specification information including design, topological relationship and element quantities of the BuildingElementModel.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Crew -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Crew">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Agents#Agent"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Agents#Team"/>
+        <rdfs:comment>A set of workers working together for specific trades.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#Catalog"/>
+        <rdfs:comment>House Model is a standard representation of  a type building product (design), which is a catalog of building with same set of design features, configurations, and properties.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModelEntry -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModelEntry">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"/>
+        <rdfs:comment>The information container that holds the specification information including design, topological relationship and LBS of the House Model</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#Activity"/>
+        <rdfs:comment>A job card is a subset work of a work package that can be completed by a specific trade within a designated physical zone on the construction site. The maximum duration for the job card is one day. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#Catalog"/>
+        <rdfs:comment>A predefined template for setting job cards, specifying its setting informations such what types of activities, trades, or conditions etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecificationEntry -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecificationEntry">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"/>
+        <rdfs:comment>The information container that holds the specification information including prerequisite, trade, default work rate, crew size of a JobCardSpecification</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialList -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialList">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Entities#Group"/>
+        <rdfs:comment>A compiled inventory of materials required for a specific activity, such as scope of work, work package, and job cards. Used for material allocation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#Catalog"/>
+        <rdfs:comment>A specification template defining the logic for material list  based on the activities</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecificationEntry -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecificationEntry">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"/>
+        <rdfs:comment>The information container that holds the specification information of material list specifications.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#Activity"/>
+        <rdfs:comment>The Scope of Work is a collective/group of activity contains all detialed activities (incl. JobCards and WorkPackages) performed on a certain Object (e.g. a Building Element) or a group of Objects (Building Elements) to bring the Object to a certain state. ​
+ScopeOfWork may contain multiple Zones and multiple Trades. ​
+Example: “All activities related to Surfaces – Walls”, “All activities related to Surfaces – Ceiling, “All activities related to Surfaces – Floor”. “Internal demolishing – Bathroom”.​
+Building elements/building element group examples: external walls, internal walls. See below.​
+ScopeOfWork should be named according to the relevant group of Objects, the name can also relate to a general location or “context” (e.g.external, internal)​
+ScopeOfWork may be grouped into other ScopeOfWork, for example “Surfaces”, i.e. “All activities related to Surfaces”​
+It can also be all activities related to the entire project, e.g. “Refurbishment of bathroom”​
+ScopeOfWork corresponds to a post or line in an offer to the ROT customer. A post has a unique identifier, which varies from project to project.​
+A WorkPackage is work description aimed at the customer​
+EET project example: groundwork ​
+Note: ScopeOfWork is not directly aligned with NS3451, but via BuildingElement</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Trade -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Trade"/>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Processes#Activity"/>
+        <rdfs:comment>A work package is a clearly defined scope of work that can be completed by a specific trade within a designated physical zone on the construction site. The maximum duration for the work package is one week. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#Catalog"/>
+        <rdfs:comment>A catalog  for specific information for setting a WP.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecificationEntry -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecificationEntry">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"/>
+        <rdfs:comment>The information container that holds the specification information including prerequisite, trade, default work rate, maximum duration and  subcontractor information of a WorkPackageSpecification</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Zone -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Zone">
+        <owl:equivalentClass rdf:resource="https://w3id.org/bot#Zone"/>
+        <owl:equivalentClass rdf:resource="https://w3id.org/digitalconstruction/0.5/Entities#Location"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/0.5/Entities#Site"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bot#Element -->
+
+
+    <owl:Class rdf:about="https://w3id.org/bot#Element"/>
+    
+
+
+    <!-- https://w3id.org/bot#Storey -->
+
+
+    <owl:Class rdf:about="https://w3id.org/bot#Storey">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Zone"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bot#Zone -->
+
+
+    <owl:Class rdf:about="https://w3id.org/bot#Zone"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Agents#Agent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Agents#Agent"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Agents#Team -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Agents#Team"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Entities#Building -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Entities#Building"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Entities#Group -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Entities#Group"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Entities#Location -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Entities#Location"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Entities#Site -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Entities#Site"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Information#Catalog -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Information#Catalog"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Processes#Activity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Processes#Activity"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/0.5/Processes#Project -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/0.5/Processes#Project"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModelEntry"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModelEntry"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecificationEntry"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecificationEntry"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecificationEntry"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

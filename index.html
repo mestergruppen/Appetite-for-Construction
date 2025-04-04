@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+    <dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>Project Production Management Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://mestergruppen.no/ontologies/projectproductionmanagement/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://mestergruppen.no/ontologies/projectproductionmanagement/","name":"Project Production Management Ontology", "headline":"Document describing the ontology https://mestergruppen.no/ontologies/projectproductionmanagement/", "dateReleased":"Mon Mar 31 16:26:12 EEST 2025", "version":"This version 0.0.5 is a public version, in which detailed classification of JB,WP, and their corresponding specification (known as own knowledge from MesterGruppen) has been concealled. 
+This version also updates on the new concept of ' Scope of Work', groupping the cross-trade activities towards specific object ranges.
+The IRI of the ontology is also updated to be unified with the MG ontology set.", "author":[{"@type":"Person","name":"Yuan Zheng"},{"@type":"Person","name":"Lars-Fredrik Forberg"},{"@type":"Person","name":"Gunnar Skeie"}]}</script>
+
+<script src="resources/jquery.js"></script>
+<script src="resources/marked.min.js"></script>
+    <script>
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+    var hash = location.hash;
+    if($(hash).offset()!=null){
+      $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+    loadTOC();
+}
+function loadTOC(){
+    //process toc dynamically
+      var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+      jQuery(".list").each(function(){
+        if(jQuery(this).is('h2')){
+            if(j>0){
+                t+='</ul>';
+                j=0;
+            }
+            t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+            i++;
+        }
+        if(jQuery(this).is('h3')){
+            if(j==0){
+                t+='<ul>';
+            }
+            j++;
+            t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+        }
+      });
+      t+='</ul>';
+      $("#toc").html(t);
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ };
+   </script>
+  </head>
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Project Production Management Ontology</h1>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="https://mestergruppen.no/ontologies/projectproductionmanagement/0.0.5/">https://mestergruppen.no/ontologies/projectproductionmanagement/0.0.5/</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="https://mestergruppen.no/ontologies/projectproductionmanagement/">https://mestergruppen.no/ontologies/projectproductionmanagement/</a></dd>
+<dt>Authors:</dt>
+<dd>Yuan Zheng, Aalto University</dd><dd>Lars-Fredrik Forberg, Mester Gruppen</dd><dd>Gunnar Skeie, Mester Gruppen</dd>
+
+<dt>Imported Ontologies:</dt>
+<dd>BOT</dd><dd>DiCon</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
+</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd> Mester Gruppen Project production management ontology (2025). Eds. Zheng, Y., Forberg, L., Skeie, G.</dd>
+</dl>
+<dt>Copy Right</dt>
+<dd> Mester Gruppen AS</dd>
+</dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div><div id="toc"></div>
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+PPM is an application-level ontology developed by Mester Gruppen, focusing on:
+<dl>
+  <dt>1.describing the organizational knowledge (Work package template)</dt>
+  <dt>2.providing a data schema for Pilarr semantic database (data lake) that represents and links different source of information (e.g. BIM quantity information)</dt>
+  <dt>3.represent multi-contextual information </dt>
+  <dt>4.provide vocabulary for developing rules and queries for generating/retrieving the information for Job cards to support the LPS deployment in the housing model construction.</dt>
+</dl>
+
+</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>dica</b></td><td>&lt;https://w3id.org/digitalconstruction/0.5/Agents#&gt;</td></tr>
+<tr><td><b>dice</b></td><td>&lt;https://w3id.org/digitalconstruction/0.5/Entities#&gt;</td></tr>
+<tr><td><b>dici</b></td><td>&lt;https://w3id.org/digitalconstruction/0.5/Information#&gt;</td></tr>
+<tr><td><b>dicm</b></td><td>&lt;https://w3id.org/digitalconstruction/0.5/Materials#&gt;</td></tr>
+<tr><td><b>dicp</b></td><td>&lt;https://w3id.org/digitalconstruction/0.5/Processes#&gt;</td></tr>
+<tr><td><b>dicv</b></td><td>&lt;https://w3id.org/digitalconstruction/0.5/Variables#&gt;</td></tr>
+<tr><td><b>bot</b></td><td>&lt;https://w3id.org/bot#&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>ppm</b></td><td>&lt;https://mestergruppen.no/ontologies/projectproductionmanagement&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">Project Production Management Ontology:: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment">
+         <span>Apartment</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementGroup"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementGroup">
+         <span>Building Element Group</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel">
+         <span>Building Element Model</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry">
+         <span>Building Element Model Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Crew"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/Crew">
+         <span>Crew</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel">
+         <span>House Model</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry">
+         <span>House Model Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">
+         <span>Job Card</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">
+         <span>Job Card Specification</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry">
+         <span>Job Card Specification Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList">
+         <span>Material List</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification">
+         <span>Material List Specification</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry">
+         <span>Material List Specification Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork">
+         <span>Scope Of Work</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/bot#Storey" title="https://w3id.org/bot#Storey">
+         <span>Storey</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">
+         <span>Work Package</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">
+         <span>Work Package Specification</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry">
+         <span>Work Package Specification Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Zone"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/Zone">
+         <span>Zone</span>
+      </a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard">
+         <span>contains Job Card</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork">
+         <span>contains Scope Of Work</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage">
+         <span>contains Work Package</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElement"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElement">
+         <span>has Building Element</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElementModel"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElementModel">
+         <span>has Building Element Model</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew">
+         <span>has Crew</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasElementQuantity"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasElementQuantity">
+         <span>has Element Quantity</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasHouseModel"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasHouseModel">
+         <span>has House Model</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification">
+         <span>has Job Card Specification</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList">
+         <span>has Material List</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification">
+         <span>has Material List Specification</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialQuantity"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialQuantity">
+         <span>has Material Quantity</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuilding"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuilding">
+         <span>has Related Building</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement">
+         <span>has Related Building Element</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup">
+         <span>has Related Building Element Group</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade">
+         <span>has Trade</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification">
+         <span>has Work Package Specification</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel">
+         <span>includes Building Element Model</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry">
+         <span>includes Building Element Model Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry">
+         <span>includes House Model Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification">
+         <span>includes Job Card Specification</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry">
+         <span>includes Job Card Specification Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification">
+         <span>includes Material List Specification</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry">
+         <span>includes Material List Specification Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry">
+         <span>includes Work Package Specification Entry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/participates"
+         title="https://mestergruppen.no/ontologies/projectproductionmanagement/participates">
+         <span>participates</span>
+      </a>
+   </li>
+</ul>
+</div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for [Ontology Name] classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by [Ontology Name].
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment"> <span>Apartment</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementGroup" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementGroup"> <span>Building Element Group</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel"> <span>Building Element Model</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry"> <span>Building Element Model Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Crew" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Crew"> <span>Crew</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel"> <span>House Model</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry"> <span>House Model Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard"> <span>Job Card</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification"> <span>Job Card Specification</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry"> <span>Job Card Specification Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList"> <span>Material List</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification"> <span>Material List Specification</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry"> <span>Material List Specification Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork"> <span>Scope Of Work</span> </a></li>
+  <li><a href="#https://w3id.org/bot#Storey" title="https://w3id.org/bot#Storey"> <span>Storey</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage"> <span>Work Package</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification"> <span>Work Package Specification</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry"> <span>Work Package Specification Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Zone" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Zone"> <span>Zone</span> </a></li>
+ </ul>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment">
+  <h3>Apartment<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Zone" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Zone">Zone</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/bot#Storey" title="https://w3id.org/bot#Storey">Storey</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementGroup">
+  <h3>Building Element Group<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementGroup</p>
+  <div class="comment">
+   <span class="markdown">A logical grouping of building elements that are functionally or spatially related. Used as the obejct group to organize the scope of work.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Group" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Entities#Group">Group</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup">has Related Building Element Group</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel">
+  <h3>Building Element Model<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#Catalog" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#Catalog">Catalog</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry">includes Building Element Model Entry</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElementModel">has Building Element Model</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel">includes Building Element Model</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel">House Model</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">Job Card Specification</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification">Material List Specification</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">Work Package Specification</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry">
+  <h3>Building Element Model Entry<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry</p>
+  <div class="comment">
+   <span class="markdown">A specific information container holds the specification information including design, topological relationship and element quantities of the BuildingElementModel.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry">Catalog Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry">includes Building Element Model Entry</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry">House Model Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry">Job Card Specification Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry">Material List Specification Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry">Work Package Specification Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/Crew">
+  <h3>Crew<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/Crew</p>
+  <div class="comment">
+   <span class="markdown">A set of workers working together for specific trades.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Agents#Agent" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Agents#Agent">Agent</a> <sup class="type-c" title="class">c</sup>, <a href="https://w3id.org/digitalconstruction/0.5/Agents#Team" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Agents#Team">Team</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade">has Trade</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/participates" title="https://mestergruppen.no/ontologies/projectproductionmanagement/participates">participates</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew">has Crew</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel">
+  <h3>House Model<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel</p>
+  <div class="comment">
+   <span class="markdown">House Model is a standard representation of a type building product (design), which is a catalog of building with same set of design features, configurations, and properties.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#Catalog" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#Catalog">Catalog</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel">includes Building Element Model</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry">includes House Model Entry</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasHouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasHouseModel">has House Model</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel">Building Element Model</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">Job Card Specification</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification">Material List Specification</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">Work Package Specification</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry">
+  <h3>House Model Entry<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry</p>
+  <div class="comment">
+   <span class="markdown">The information container that holds the specification information including design, topological relationship and LBS of the House Model</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry">Catalog Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry">includes House Model Entry</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry">Building Element Model Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry">Job Card Specification Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry">Material List Specification Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry">Work Package Specification Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">
+  <h3>Job Card<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard</p>
+  <div class="comment">
+   <span class="markdown">A job card is a subset work of a work package that can be completed by a specific trade within a designated physical zone on the construction site. The maximum duration for the job card is one day.&nbsp;</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Processes#Activity" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew">has Crew</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification">has Job Card Specification</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList">has Material List</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement">has Related Building Element</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup">has Related Building Element Group</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade">has Trade</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard">contains Job Card</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/participates" title="https://mestergruppen.no/ontologies/projectproductionmanagement/participates">participates</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">
+  <h3>Job Card Specification<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification</p>
+  <div class="comment">
+   <span class="markdown">A predefined template for setting job cards, specifying its setting informations such what types of activities, trades, or conditions etc.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#Catalog" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#Catalog">Catalog</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry">includes Job Card Specification Entry</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification">includes Material List Specification</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification">has Job Card Specification</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification">includes Job Card Specification</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel">Building Element Model</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel">House Model</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification">Material List Specification</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">Work Package Specification</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry">
+  <h3>Job Card Specification Entry<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry</p>
+  <div class="comment">
+   <span class="markdown">The information container that holds the specification information including prerequisite, trade, default work rate, crew size of a JobCardSpecification</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry">Catalog Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry">includes Job Card Specification Entry</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry">Building Element Model Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry">House Model Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry">Material List Specification Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry">Work Package Specification Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList">
+  <h3>Material List<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList</p>
+  <div class="comment">
+   <span class="markdown">A compiled inventory of materials required for a specific activity, such as scope of work, work package, and job cards. Used for material allocation.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Group" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Entities#Group">Group</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification">has Material List Specification</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList">has Material List</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification">
+  <h3>Material List Specification<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification</p>
+  <div class="comment">
+   <span class="markdown">A specification template defining the logic for material list based on the activities</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#Catalog" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#Catalog">Catalog</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry">includes Material List Specification Entry</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification">has Material List Specification</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification">includes Material List Specification</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel">Building Element Model</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel">House Model</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">Job Card Specification</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">Work Package Specification</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry">
+  <h3>Material List Specification Entry<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry</p>
+  <div class="comment">
+   <span class="markdown">The information container that holds the specification information of material list specifications.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry">Catalog Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry">includes Material List Specification Entry</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry">Building Element Model Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry">House Model Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry">Job Card Specification Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry">Work Package Specification Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork">
+  <h3>Scope Of Work<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork</p>
+  <div class="comment">
+   <span class="markdown">The Scope of Work is a collective/group of activity contains all detialed activities (incl. JobCards and WorkPackages) performed on a certain Object (e.g. a Building Element) or a group of Objects (Building Elements) to bring the Object to a certain state. ​ ScopeOfWork may contain multiple Zones and multiple Trades. ​ Example: “All activities related to Surfaces – Walls”, “All activities related to Surfaces – Ceiling, “All activities related to Surfaces – Floor”. “Internal demolishing – Bathroom”.​ Building elements/building element group examples: external walls, internal walls. See below.​ ScopeOfWork should be named according to the relevant group of Objects, the name can also relate to a general location or “context” (e.g.external, internal)​ ScopeOfWork may be grouped into other ScopeOfWork, for example “Surfaces”, i.e. “All activities related to Surfaces”​ It can also be all activities related to the entire project, e.g. “Refurbishment of bathroom”​ ScopeOfWork corresponds to a post or line in an offer to the ROT customer. A post has a unique identifier, which varies from project to project.​ A WorkPackage is work description aimed at the customer​ EET project example: groundwork ​ Note: ScopeOfWork is not directly aligned with NS3451, but via BuildingElement</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Processes#Activity" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard">contains Job Card</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork">contains Scope Of Work</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage">contains Work Package</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList">has Material List</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement">has Related Building Element</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup">has Related Building Element Group</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork">contains Scope Of Work</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/bot#Storey">
+  <h3>Storey<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/bot#Storey</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Zone" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Zone">Zone</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment">Apartment</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">
+  <h3>Work Package<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage</p>
+  <div class="comment">
+   <span class="markdown">A work package is a clearly defined scope of work that can be completed by a specific trade within a designated physical zone on the construction site. The maximum duration for the work package is one week.&nbsp;</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Processes#Activity" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard">contains Job Card</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew">has Crew</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList">has Material List</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement">has Related Building Element</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup">has Related Building Element Group</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade">has Trade</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification">has Work Package Specification</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage">contains Work Package</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/participates" title="https://mestergruppen.no/ontologies/projectproductionmanagement/participates">participates</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">
+  <h3>Work Package Specification<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification</p>
+  <div class="comment">
+   <span class="markdown">A catalog for specific information for setting a WP.&nbsp;&nbsp;</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#Catalog" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#Catalog">Catalog</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification">includes Job Card Specification</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification">includes Material List Specification</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry">includes Work Package Specification Entry</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification">has Work Package Specification</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel">Building Element Model</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel">House Model</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">Job Card Specification</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification">Material List Specification</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry">
+  <h3>Work Package Specification Entry<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry</p>
+  <div class="comment">
+   <span class="markdown">The information container that holds the specification information including prerequisite, trade, default work rate, maximum duration and subcontractor information of a WorkPackageSpecification</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry">Catalog Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry">includes Work Package Specification Entry</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry">Building Element Model Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry">House Model Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry">Job Card Specification Entry</a> <sup class="type-c" title="class">c</sup>, <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry">Material List Specification Entry</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/Zone">
+  <h3>Zone<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/Zone</p>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="https://w3id.org/bot#Zone" target="_blank" title="https://w3id.org/bot#Zone">Zone</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Location" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Entities#Location">Location</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/digitalconstruction/0.5/Entities#Site" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Entities#Site">Site</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Apartment">Apartment</a> <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/bot#Storey" title="https://w3id.org/bot#Storey">Storey</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard"> <span>contains Job Card</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork"> <span>contains Scope Of Work</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage"> <span>contains Work Package</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElement" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElement"> <span>has Building Element</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElementModel"> <span>has Building Element Model</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew"> <span>has Crew</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasElementQuantity" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasElementQuantity"> <span>has Element Quantity</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasHouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasHouseModel"> <span>has House Model</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification"> <span>has Job Card Specification</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList"> <span>has Material List</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification"> <span>has Material List Specification</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialQuantity" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialQuantity"> <span>has Material Quantity</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuilding" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuilding"> <span>has Related Building</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement"> <span>has Related Building Element</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup"> <span>has Related Building Element Group</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade"> <span>has Trade</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification"> <span>has Work Package Specification</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel"> <span>includes Building Element Model</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry"> <span>includes Building Element Model Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry"> <span>includes House Model Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification"> <span>includes Job Card Specification</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry"> <span>includes Job Card Specification Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification"> <span>includes Material List Specification</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry"> <span>includes Material List Specification Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry"> <span>includes Work Package Specification Entry</span> </a></li>
+  <li><a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/participates" title="https://mestergruppen.no/ontologies/projectproductionmanagement/participates"> <span>participates</span> </a></li>
+ </ul>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard">
+  <h3>contains Job Card<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/containsJobCard</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity">has Sub Activity</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork">Scope Of Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">Work Package</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#Project" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#Project">Project</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">Job Card</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork">
+  <h3>contains Scope Of Work<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/containsScopeOfWork</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity">has Sub Activity</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork">Scope Of Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#Project" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#Project">Project</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork">Scope Of Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage">
+  <h3>contains Work Package<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/containsWorkPackage</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity">has Sub Activity</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork">Scope Of Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#Project" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#Project">Project</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">Work Package</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElement">
+  <h3>has Building Element<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElement</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/bot#hasElement" target="_blank" title="https://w3id.org/bot#hasElement">has Element</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/bot#Zone" target="_blank" title="https://w3id.org/bot#Zone">Zone</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/bot#Element" target="_blank" title="https://w3id.org/bot#Element">Element</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElementModel">
+  <h3>has Building Element Model<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasBuildingElementModel</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf">is Topic Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/bot#Element" target="_blank" title="https://w3id.org/bot#Element">Element</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel">Building Element Model</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew">
+  <h3>has Crew<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasCrew</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Agents#hasExecutingAgent" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Agents#hasExecutingAgent">has Executing Agent</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">Job Card</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">Work Package</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Crew" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Crew">Crew</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasElementQuantity">
+  <h3>has Element Quantity<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasElementQuantity</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty">has Property</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasHouseModel">
+  <h3>has House Model<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasHouseModel</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf">is Topic Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Entities#Building" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Entities#Building">Building</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel">House Model</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification">
+  <h3>has Job Card Specification<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasJobCardSpecification</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf">is Topic Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">Job Card</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">Job Card Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList">
+  <h3>has Material List<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialList</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Materials#hasMaterial" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Materials#hasMaterial">has Material</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">Job Card</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork">Scope Of Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">Work Package</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList">Material List</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification">
+  <h3>has Material List Specification<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialListSpecification</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf">is Topic Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialList">Material List</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification">Material List Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialQuantity">
+  <h3>has Material Quantity<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasMaterialQuantity</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty">has Property</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuilding">
+  <h3>has Related Building<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuilding</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#hasObject" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#hasObject">has Object</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#Project" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#Project">Project</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Entities#Building" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Entities#Building">Building</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement">
+  <h3>has Related Building Element<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElement</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#hasObject" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#hasObject">has Object</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">Job Card</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork">Scope Of Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">Work Package</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/bot#Element" target="_blank" title="https://w3id.org/bot#Element">Element</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup">
+  <h3>has Related Building Element Group<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasRelatedBuildingElementGroup</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Processes#hasObject" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Processes#hasObject">has Object</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">Job Card</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork" title="https://mestergruppen.no/ontologies/projectproductionmanagement/ScopeOfWork">Scope Of Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">Work Package</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementGroup" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementGroup">Building Element Group</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade">
+  <h3>has Trade<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasTrade</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Variables#hasProperty">has Property</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Crew" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Crew">Crew</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">Job Card</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">Work Package</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://mestergruppen.no/ontologies/projectproductionmanagement/Trade" target="_blank" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Trade">Trade</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification">
+  <h3>has Work Package Specification<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/hasWorkPackageSpecification</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#isTopicOf">is Topic Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">Work Package</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">Work Package Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel">
+  <h3>includes Building Element Model<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModel</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#includesModel" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#includesModel">includes Model</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel">House Model</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel">Building Element Model</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry">
+  <h3>includes Building Element Model Entry<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/includesBuildingElementModelEntry</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#includesEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#includesEntry">includes Entry</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModel">Building Element Model</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/BuildingElementModelEntry">Building Element Model Entry</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry">
+  <h3>includes House Model Entry<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/includesHouseModelEntry</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#includesEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#includesEntry">includes Entry</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModel">House Model</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/HouseModelEntry">House Model Entry</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification">
+  <h3>includes Job Card Specification<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecification</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#includesModel" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#includesModel">includes Model</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">Work Package Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">Job Card Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry">
+  <h3>includes Job Card Specification Entry<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/includesJobCardSpecificationEntry</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#includesEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#includesEntry">includes Entry</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">Job Card Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecificationEntry">Job Card Specification Entry</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification">
+  <h3>includes Material List Specification<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecification</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#includesModel" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#includesModel">includes Model</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCardSpecification">Job Card Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">Work Package Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification">Material List Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry">
+  <h3>includes Material List Specification Entry<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/includesMaterialListSpecificationEntry</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#includesEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#includesEntry">includes Entry</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecification">Material List Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/MaterialListSpecificationEntry">Material List Specification Entry</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry">
+  <h3>includes Work Package Specification Entry<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/includesWorkPackageSpecificationEntry</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Information#includesEntry" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Information#includesEntry">includes Entry</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecification">Work Package Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackageSpecificationEntry">Work Package Specification Entry</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://mestergruppen.no/ontologies/projectproductionmanagement/participates">
+  <h3>participates<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://mestergruppen.no/ontologies/projectproductionmanagement/participates</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/digitalconstruction/0.5/Agents#isAgentIn" target="_blank" title="https://w3id.org/digitalconstruction/0.5/Agents#isAgentIn">is Agent In</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/Crew" title="https://mestergruppen.no/ontologies/projectproductionmanagement/Crew">Crew</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard" title="https://mestergruppen.no/ontologies/projectproductionmanagement/JobCard">Job Card</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage" title="https://mestergruppen.no/ontologies/projectproductionmanagement/WorkPackage">Work Package</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

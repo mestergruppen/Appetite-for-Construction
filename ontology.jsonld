@@ -1,0 +1,637 @@
+[ {
+  "@id" : "_:genid1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel"
+    }, {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel"
+    }, {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"
+    }, {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification"
+    }, {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid7",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModelEntry"
+    }, {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModelEntry"
+    }, {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecificationEntry"
+    }, {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecificationEntry"
+    }, {
+      "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecificationEntry"
+    } ]
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/license",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Apartment",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Zone"
+  } ],
+  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
+    "@id" : "https://w3id.org/bot#Storey"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementGroup",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A logical grouping of building elements that are functionally or spatially related. Used as the obejct group to organize the scope of work."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Group"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/dc/terms/license" : [ {
+    "@value" : "A catalog of a specific design of certain building element product type. It refers to a particular set of design features, configurations, and properties that each Building Element instance inherits from it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#Catalog"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModelEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A specific information container holds the specification information including design, topological relationship and element quantities of the BuildingElementModel."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Crew",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A set of workers working together for specific trades."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Agents#Agent"
+  }, {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Agents#Team"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "House Model is a standard representation of  a type building product (design), which is a catalog of building with same set of design features, configurations, and properties."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#Catalog"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModelEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The information container that holds the specification information including design, topological relationship and LBS of the House Model"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A job card is a subset work of a work package that can be completed by a specific trade within a designated physical zone on the construction site. The maximum duration for the job card is one day. "
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#Activity"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A predefined template for setting job cards, specifying its setting informations such what types of activities, trades, or conditions etc."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#Catalog"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecificationEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The information container that holds the specification information including prerequisite, trade, default work rate, crew size of a JobCardSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialList",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A compiled inventory of materials required for a specific activity, such as scope of work, work package, and job cards. Used for material allocation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Group"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A specification template defining the logic for material list  based on the activities"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#Catalog"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecificationEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The information container that holds the specification information of material list specifications."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The Scope of Work is a collective/group of activity contains all detialed activities (incl. JobCards and WorkPackages) performed on a certain Object (e.g. a Building Element) or a group of Objects (Building Elements) to bring the Object to a certain state. ​\nScopeOfWork may contain multiple Zones and multiple Trades. ​\nExample: “All activities related to Surfaces – Walls”, “All activities related to Surfaces – Ceiling, “All activities related to Surfaces – Floor”. “Internal demolishing – Bathroom”.​\nBuilding elements/building element group examples: external walls, internal walls. See below.​\nScopeOfWork should be named according to the relevant group of Objects, the name can also relate to a general location or “context” (e.g.external, internal)​\nScopeOfWork may be grouped into other ScopeOfWork, for example “Surfaces”, i.e. “All activities related to Surfaces”​\nIt can also be all activities related to the entire project, e.g. “Refurbishment of bathroom”​\nScopeOfWork corresponds to a post or line in an offer to the ROT customer. A post has a unique identifier, which varies from project to project.​\nA WorkPackage is work description aimed at the customer​\nEET project example: groundwork ​\nNote: ScopeOfWork is not directly aligned with NS3451, but via BuildingElement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#Activity"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Trade",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A work package is a clearly defined scope of work that can be completed by a specific trade within a designated physical zone on the construction site. The maximum duration for the work package is one week. "
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#Activity"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A catalog  for specific information for setting a WP.  "
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#Catalog"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecificationEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The information container that holds the specification information including prerequisite, trade, default work rate, maximum duration and  subcontractor information of a WorkPackageSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Zone",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Site"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "https://w3id.org/bot#Zone"
+  }, {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Location"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/containsJobCard",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"
+  }, {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#Project"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/containsScopeOfWork",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"
+  }, {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#Project"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/containsWorkPackage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"
+  }, {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#Project"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasBuildingElement",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/bot#Zone"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/bot#Element"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/bot#hasElement"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasBuildingElementModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/bot#Element"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasCrew",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Crew"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Agents#hasExecutingAgent"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasElementQuantity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Variables#hasProperty"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasHouseModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Building"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasJobCardSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasMaterialList",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialList"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Materials#hasMaterial"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasMaterialListSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialList"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasMaterialQuantity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Variables#hasProperty"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasRelatedBuilding",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#Project"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Building"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#hasObject"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasRelatedBuildingElement",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/bot#Element"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#hasObject"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasRelatedBuildingElementGroup",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/ScopeOfWork"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementGroup"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#hasObject"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasTrade",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Crew"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Trade"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Variables#hasProperty"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/hasWorkPackageSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#isTopicOf"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesBuildingElementModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesModel"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesBuildingElementModelEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/BuildingElementModelEntry"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesHouseModelEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/HouseModelEntry"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesJobCardSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesModel"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesJobCardSpecificationEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecificationEntry"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesMaterialListSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCardSpecification"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesModel"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesMaterialListSpecificationEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/MaterialListSpecificationEntry"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/includesWorkPackageSpecificationEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackageSpecificationEntry"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesEntry"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/participates",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Crew"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/JobCard"
+  }, {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/WorkPackage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Agents#isAgentIn"
+  } ]
+}, {
+  "@id" : "https://mestergruppen.no/ontologies/projectproductionmanagement/",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Copyright by Mester Gruppen AS"
+  }, {
+    "@value" : "PPM is an application-level ontology focusing on:\n1.describing the organizational knowledge (Work package template) \n2.providing a data schema for Pilarr semantic database (data lake) that represents and links different source of information (e.g. BIM quantity information) \n3.represent multi-contextual information\n4.provide vocabulary for developing rules and queries for generating/retrieving the information for Job cards to support the LPS deployment in the housing model construction."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@value" : "Yuan Zheng\nLars-Fredrik ForBerg\nGunnar Skeie"
+  } ],
+  "http://www.w3.org/2002/07/owl#imports" : [ {
+    "@id" : "https://w3id.org/bot-0.3.2"
+  }, {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Information"
+  }, {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Materials"
+  }, {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Processes"
+  }, {
+    "@id" : "https://w3id.org/digitalconstruction/0.5/Variables"
+  } ],
+  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
+    "@id" : "https://mestergruppen.no/ontologies/projectproductionmanagement/0.0.5/"
+  } ],
+  "http://www.w3.org/2002/07/owl#versionInfo" : [ {
+    "@value" : "0.0.5"
+  }, {
+    "@value" : "This version 0.0.5 is a public version, in which detailed classification of JB,WP, and their corresponding specification (known as own knowledge from MesterGruppen) has been concealled. \nThis version also updates on the new concept of ' Scope of Work', groupping the cross-trade activities towards specific object ranges.\nThe IRI of the ontology is also updated to be unified with the MG ontology set."
+  } ]
+}, {
+  "@id" : "https://w3id.org/bot#Element",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/bot#Storey",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/jerryzheng/ontologies/2025/2/untitled-ontology-13/Zone"
+  } ]
+}, {
+  "@id" : "https://w3id.org/bot#Zone",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/bot#hasElement",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Agents#Agent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Agents#Team",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Agents#hasExecutingAgent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Agents#isAgentIn",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Building",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Group",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Location",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Entities#Site",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Information#Catalog",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Information#CatalogEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesEntry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Information#includesModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Information#isTopicOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Materials#hasMaterial",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#Activity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#Project",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#hasObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Processes#hasSubActivity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/digitalconstruction/0.5/Variables#hasProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+} ]

@@ -1,0 +1,4 @@
+@prefix ppm: <https://mestergruppen.no/ontologies/projectproductionmanagement#> .
+@prefix ex: <https://example.com/ppm/> .
+
+ex:JobCard1 ppm:hasWorkHour 10 .

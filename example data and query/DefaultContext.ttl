@@ -1,0 +1,10 @@
+@prefix ppm: <https://mestergruppen.no/ontologies/projectproductionmanagement#> .
+@prefix dici: <https://w3id.org/digitalconstruction/0.5/Information#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <https://example.com/ppm/> .
+
+ppm:Framing rdfs:subClassOf ppm:JobCard ;
+                      ppm:hasJobCardSpecification ex:JobCardSpec1 .
+
+ex:JobCardSpec1 dici:includesEntry ex:SpecEntry1 .
+

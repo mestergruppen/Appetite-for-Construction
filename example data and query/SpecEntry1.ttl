@@ -1,0 +1,6 @@
+@prefix ppm: <https://mestergruppen.no/ontologies/projectproductionmanagement#> .
+@prefix ex: <https://example.com/ppm/> .
+
+ppm:Framing
+  ppm:hasWorkRate 5 ;
+  ppm:includesTemplateMaterialList ex:MaterialList1 .

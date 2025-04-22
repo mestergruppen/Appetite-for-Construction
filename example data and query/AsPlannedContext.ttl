@@ -1,0 +1,15 @@
+@prefix ppm: <https://mestergruppen.no/ontologies/projectproductionmanagement#> .
+@prefix dice: <https://w3id.org/digitalconstruction/0.5/Entities#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <https://example.com/ppm/> .
+
+ex:Worker1 ppm:participates ex:JobCard1 .
+
+ex:JobCard1 a ppm:Framing ;
+            ppm:hasWorkQuantity 120 ;
+            ppm:hasCrew ex:Crew1 .
+
+ex:Crew1 dice:hasMember ex:Worker1, ex:Worker2, ex:Worker3 .
+
+ppm:Framing rdfs:subClassOf ppm:JobCard .
+

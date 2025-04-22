@@ -1,0 +1,9 @@
+@prefix ppm: <https://mestergruppen.no/ontologies/projectproductionmanagement#> .
+@prefix dicv: <https://w3id.org/digitalconstruction/0.5/Variables#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <https://example.com/ppm/> .
+
+ex:MaterialSet1 a ppm:MaterialSet ;
+                rdfs:label "Gypsum Board" ;
+                dicv:hasUnit "m2" ;
+                ppm:hasMaterialQuantity 35 .
